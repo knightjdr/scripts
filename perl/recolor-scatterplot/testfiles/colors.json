@@ -1,0 +1,12 @@
+[
+	{
+		"color": "#00ff00",
+		"size": 10,
+		"list": ["CKB", "PKM"]
+	},
+	{
+		"color": "#ff0000",
+		"list": ["GAPDH", "EEF1A2"]
+	}
+]
+
