@@ -1,5 +1,9 @@
 **/.RHistory
+**/.Rapp.history
 
 .profile
 
+**/data
 **/logs
+**/output*
+**/testfiles
