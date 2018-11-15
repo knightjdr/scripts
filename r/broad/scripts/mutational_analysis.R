@@ -37,7 +37,17 @@ reshapedNormal = melt(as.matrix(cellsNormalDF))
 reshapedMutant = melt(as.matrix(cellsMutatedDF))
 reshaped = rbind(reshapedNormal, reshapedMutant)
 colnames(reshaped) = c('gene', 'cell', 'value')
-reshaped$gene = factor(reshaped$gene, levels = levels(reshaped$gene)[order(levels(reshaped$gene))])
+
+# Make item order match gene array order
+axisOrder = vector(mode="character", length = 2 * length(genes))
+i = 0
+for(gene in genes) {
+  i = i + 1
+  axisOrder[i] = gene
+  i = i + 1
+  axisOrder[i] = paste0(gene, '_M')
+}
+reshaped$gene = factor(reshaped$gene, levels = axisOrder)
 
 # calculate median and variance for each gene in cellDF
 # geneMedian = apply(cellDF, 1, median) # get genes values with geneMedian['geneName']
