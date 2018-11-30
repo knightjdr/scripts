@@ -1,0 +1,15 @@
+{
+  "name": "gensecret",
+  "version": "0.1.0",
+  "description": "Node script for generating a signing key for JWTs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James D.R. Knight",
+  "license": "MIT",
+  "dependencies": {
+    "njwt": "^0.4.0",
+    "secure-random": "^1.1.1"
+  }
+}

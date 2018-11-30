@@ -1,0 +1,15 @@
+{
+  "name": "misc-node-scripts",
+  "version": "1.0.0",
+  "description": "Miscellaneous scripts for analysis and file parsing",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "James Knight",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "jest": "^23.6.0"
+  }
+}

@@ -2,7 +2,7 @@
 
 Miscellaneous analysis scripts.
 
-# Organization
+## Organization
 
 * place all data files in subfolder called "data"
 * output should go into subfolder called "output*"
