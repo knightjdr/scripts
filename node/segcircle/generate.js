@@ -5,6 +5,7 @@ const generate = options => ({
       'samplefile.txt',
     ],
     imageType: 'segcircle',
+    name: `segCirlce ${options.circles}x${options.segments}`,
   },
   segcircles: {
     readouts: Array.from(Array(options.segments)).map((v, index) => ({
