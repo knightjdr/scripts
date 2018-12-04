@@ -1,27 +1,38 @@
-const generate = options => ({
-  panel: false,
-  parameters: {
-    files: [
-      'samplefile.txt',
-    ],
-    imageType: 'segcircle',
-    name: `segCirlce ${options.circles}x${options.segments}`,
-  },
-  segcircles: {
+const colors = ['blueBlack', 'greyscale', 'redBlack'];
+
+const generate = (options) => {
+  const plot = {
     readouts: Array.from(Array(options.segments)).map((v, index) => ({
       known: Math.random() >= 0.5,
       name: `gene ${index + 1}`,
     })),
     segments: Array.from(Array(options.circles)).map((v, index) => ({
-      abundanceCap: 50,
-      color: 'blueBlack',
       name: `Attribute ${index + 1}`,
-      values: Array.from(Array(options.segments)).map(() => Math.floor(Math.random() * 100)),
+      values: Array.from(Array(options.segments)).map(() => Math.floor(Math.random() * 75)),
     })),
-  },
-  settings: {
-    current: {},
-  },
-});
+  };
+  return ({
+    availablePlots: [plot],
+    panel: true,
+    parameters: {
+      files: [
+        'samplefile.txt',
+      ],
+      imageType: 'segcircle',
+      name: `segCirlce ${options.circles}x${options.segments}`,
+    },
+    plot,
+    segcircleSettings: Array.from(Array(options.circles)).map(() => ({
+      abundanceCap: 50,
+      color: colors[Math.floor(Math.random() * Math.floor(3))],
+      minAbundance: 0,
+    })),
+    settings: {
+      current: {
+        known: true,
+      },
+    },
+  });
+};
 
 module.exports = generate;
