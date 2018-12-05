@@ -6,7 +6,10 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2016
+        "ecmaVersion": 2016,
+        "ecmaFeatures": {
+          "experimentalObjectRestSpread": true
+        }
     },
     "rules": {
         "comma-dangle": ["error", {
@@ -27,6 +30,10 @@ module.exports = {
         "linebreak-style": [
             "error",
             "unix"
+        ],
+        "max-len": [
+          "error",
+          { "code": 100 },
         ],
         "no-trailing-spaces": ["error"],
         "quotes": [

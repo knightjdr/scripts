@@ -2,6 +2,7 @@ const colors = ['blueBlack', 'greyscale', 'redBlack'];
 
 const generate = (options) => {
   const plot = {
+    name: 'random',
     readouts: Array.from(Array(options.segments)).map((v, index) => ({
       known: Math.random() >= 0.5,
       name: `gene ${index + 1}`,
@@ -30,6 +31,7 @@ const generate = (options) => {
     settings: {
       current: {
         known: true,
+        plot: 0,
       },
     },
   });
