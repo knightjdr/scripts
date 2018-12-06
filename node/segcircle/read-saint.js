@@ -15,6 +15,7 @@ const readSaint = options => (
         const fields = line.split('\t');
         const bait = fields[0];
         const fc = fields[14];
+        const gene = bait.split('_')[0];
         const prey = fields[2];
         const score = fields[15];
         const spec = fields[5];
@@ -22,12 +23,14 @@ const readSaint = options => (
           if (baits[bait]) {
             baits[bait].push({
               fc,
+              gene,
               prey,
               spec,
             });
           } else {
             baits[bait] = [{
               fc,
+              gene,
               prey,
               spec,
             }];

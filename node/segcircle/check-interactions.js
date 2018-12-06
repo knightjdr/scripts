@@ -2,16 +2,19 @@ const fs = require('fs');
 const readline = require('readline');
 
 const addInteractions = (baits, interactions) => (
-  Object.entries(baits).reduce((accum, [bait, arr]) => {
-    const source = bait.toLowerCase();
-    return ({
-      ...accum,
-      [bait]: arr.map(details => ({
+  Object.entries(baits).reduce((accum, [bait, arr]) => ({
+    ...accum,
+    [bait]: arr.map((details) => {
+      const gene = details.gene.toLowerCase();
+      return {
         ...details,
-        known: Boolean(interactions[source] && interactions[source].includes(details.prey.toLowerCase())),
-      })),
-    });
-  }, {})
+        known: Boolean(
+          interactions[gene]
+          && interactions[gene].includes(details.prey.toLowerCase()),
+        ),
+      };
+    }),
+  }), {})
 );
 
 const readInteractions = file => (
