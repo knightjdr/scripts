@@ -4,12 +4,13 @@
   "description": "Miscellaneous scripts for analysis and file parsing",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "author": "James Knight",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.9.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0"
   }
 }

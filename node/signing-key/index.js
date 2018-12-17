@@ -1,8 +1,11 @@
-// Generates a 50 character signing key (secret).
+/* eslint no-console: 0 */
+// Generates a character signing key (secret).
 
-const nJwt = require('njwt');
 const secureRandom = require('secure-random');
 
-const signingKey = secureRandom(50, {type: 'Buffer'});
+const args = require('./args');
+
+const options = args();
+const signingKey = secureRandom(options.length, {type: 'Buffer'});
 
 console.log(signingKey.toString('hex'));

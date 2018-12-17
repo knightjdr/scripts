@@ -1,6 +1,9 @@
 ### Signing key
 
-Generates a 50 character signing key (secret) and outputs to console.
+Generates a signing key (secret) and outputs to console
+
+Arguments:
+* --length: default 50
 
 ```
 node index.js

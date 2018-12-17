@@ -9,7 +9,6 @@
   "author": "James D.R. Knight",
   "license": "MIT",
   "dependencies": {
-    "njwt": "^0.4.0",
     "secure-random": "^1.1.1"
   }
 }
