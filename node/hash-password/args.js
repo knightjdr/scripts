@@ -1,4 +1,4 @@
-const afterCharacter = require('./after-character');
+const afterCharacter = require('../helpers/after-character');
 
 const args = () => {
   const options = {

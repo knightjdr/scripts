@@ -7,3 +7,5 @@
 **/logs
 **/output*
 **/testfiles
+
+node_modules
