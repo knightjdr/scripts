@@ -1,4 +1,6 @@
+const daysBetween = require('../helpers/days-between');
 const round = require('../helpers/round');
+const yearMonthDay = require('../helpers/year-month-day');
 
 const dayIndex = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -45,6 +47,11 @@ const byDate = (queries) => {
   return {
     day: byDay(dates),
     hour: byHour(dates),
+    summary: {
+      duration: round(daysBetween(new Date(dates[0]), new Date(dates[dates.length - 1])), 2),
+      end: yearMonthDay(dates[dates.length - 1]),
+      start: yearMonthDay(dates[0]),
+    },
   };
 };
 
