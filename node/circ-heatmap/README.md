@@ -1,6 +1,6 @@
-### SegCircle plot generator
+### CircHeatmap plot generator
 
-Can generate a segcirlce interactive file for ProHits-viz either with real or random data.
+Can generate a circ-heatmap interactive file for ProHits-viz either with real or random data.
 
 For real data need:
 * RNA expression data: [HPA cell data](https://www.proteinatlas.org/download/rna_celline.tsv.zip)

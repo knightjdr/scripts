@@ -1,6 +1,6 @@
 const formatData = (data) => {
   const availablePlots = Object.entries(data).map(([bait, arr]) => {
-    const segCircle = arr.reduce((accum, details) => ({
+    const circHeatmap = arr.reduce((accum, details) => ({
       readouts: [
         ...accum.readouts,
         {
@@ -41,8 +41,8 @@ const formatData = (data) => {
     });
     return {
       name: bait,
-      readouts: segCircle.readouts,
-      segments: segCircle.segments,
+      readouts: circHeatmap.readouts,
+      segments: circHeatmap.segments,
     };
   });
   return {
@@ -52,11 +52,11 @@ const formatData = (data) => {
       files: [
         'samplefile.txt',
       ],
-      imageType: 'segcircle',
+      imageType: 'circ-heatmap',
       name: 'test',
     },
     plot: availablePlots[0],
-    segcircleSettings: [
+    circHeatmapSettings: [
       {
         abundanceCap: 50,
         color: 'blueBlack',

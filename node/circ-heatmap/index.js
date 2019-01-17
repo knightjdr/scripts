@@ -10,7 +10,7 @@ let obj;
 if (options.random) {
   obj = random(options);
   writeFile(
-    `./output/segcircle-${options.circles}-${options.segments}.json`,
+    `./output/circheatmap-${options.circles}-${options.segments}.json`,
     JSON.stringify(obj, null, 2),
   )
     .catch((err) => {
