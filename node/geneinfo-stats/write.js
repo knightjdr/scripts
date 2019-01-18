@@ -23,6 +23,7 @@ const write = (filtered, fields, species, time) => (
     arrtoFile(stream, time.day);
     stream.write('\r\nBy hour\n');
     arrtoFile(stream, time.hour);
+    stream.write('\r\n');
     stream.end();
     resolve();
   })

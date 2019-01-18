@@ -1,7 +1,7 @@
 const round = require('../helpers/round');
 
 const filterUnknown = (queries) => {
-  const filtered = queries.filter(query => query.gene !== 'unknown');
+  const filtered = queries.filter(query => query.known);
   return {
     known: {
       count: filtered.length,
