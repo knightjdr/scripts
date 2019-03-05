@@ -5,6 +5,7 @@ const fields = {
   'ensembl-protein': 0,
   gene: 0,
   geneid: 0,
+  locus: 0,
   nextprot: 0,
   refseq: 0,
   uniprot: 0,
