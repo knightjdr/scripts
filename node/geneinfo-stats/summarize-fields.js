@@ -7,6 +7,7 @@ const fields = {
   geneid: 0,
   locus: 0,
   nextprot: 0,
+  orf: 0,
   refseq: 0,
   uniprot: 0,
 };
