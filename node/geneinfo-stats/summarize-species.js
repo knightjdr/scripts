@@ -10,6 +10,7 @@ const species = {
   'Homo sapiens': 0,
   'Mus musculus': 0,
   'Saccharomyces cerevisiae': 0,
+  'Schizosaccharomyces pombe': 0,
   'Xenopus laevis': 0,
 };
 
