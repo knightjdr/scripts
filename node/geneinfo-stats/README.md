@@ -1,6 +1,6 @@
 ### Generate summary statistics for the Gene Info extension
 
-First, export the tracking colleciton, changing password for the actual password
+First, export the tracking collection, changing password for the actual password
 ```
 mongoexport --db geneinfo --collection tracking -u "geneinfo" -p "password" --authenticationDatabase "geneinfo" --out tracking.json --jsonArray
 ```
