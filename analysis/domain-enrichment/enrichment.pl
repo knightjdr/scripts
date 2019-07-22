@@ -30,7 +30,7 @@ if ($#ARGV == 0) {
 	print "and calculates term enrichment (whatever the enrichment terms are).\n";
 	print "\nusage:\n $0\n";
 	print "-a [allow missing genes (absent from database) to contribute to enrichment score [1: true, 0: false (default)]]\n";
-	print "-b [background list of genes]\n";
+	print "-b [background list of genes (optional)]\n";
   print "-g [list of genes to test for enrichment]\n";
   print "-o [out file prefix, default 'enrichment']\n";
 	print "-t [list of genes with enrichment terms]\n";
