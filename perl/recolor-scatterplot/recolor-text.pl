@@ -13,6 +13,7 @@ my $svgFile = '';	# SVG file to modify.
 my $colorFile = ''; # tab-delimited text file with color scheme.
 my $defaultColor = '#509afb';	# Default fill color.
 my $defaultRadius = 6;	# Default circle radius
+my $tool = 'b';
 
 if ($#ARGV == 0) {
 	print "\nTakes an SVG file from the bait-bait tool at ProHits-viz and recolors/resize points\n";
@@ -22,6 +23,7 @@ if ($#ARGV == 0) {
 	print "-f [fill color (wrapped in quotes) for points not explicitly in text file (default blue)]\n";
   print "-r [radius for points not explicitly in text file (default 6)]\n";
   print "-s [svg file; must end in .svg]\n";
+  print "-t [tool; b for bait-bait and s for specificity (default b)]";
 	die "\n";
 } else {
 	my $i = 0;
@@ -29,15 +31,18 @@ if ($#ARGV == 0) {
 		if ($ARGV[$i] eq '-c'){
 			$i++;
 			$colorFile = $ARGV[$i];
-		} elsif ($ARGV[$i] eq '-f'){
+		} elsif ($ARGV[$i] eq '-f') {
 			$i++;
 			$defaultColor = $ARGV[$i];
-		} elsif ($ARGV[$i] eq '-r'){
+		} elsif ($ARGV[$i] eq '-r') {
       $i++;
       $defaultRadius = $ARGV[$i];
-    } elsif ($ARGV[$i] eq '-s'){
+    } elsif ($ARGV[$i] eq '-s') {
 			$i++;
 			$svgFile = $ARGV[$i];
+		} elsif ($ARGV[$i] eq '-t') {
+			$i++;
+			$tool = $ARGV[$i];
 		} else{
 			die "\nIncorrect program usage\n\n";
 		}
@@ -65,7 +70,11 @@ sub colorsToHash {
 # Extract header (until first circle).
 sub extractSections {
   my $svg = $_[0];
-  my ($header, $points, $tail) = $svg =~ /^(.+?)(<g clip-path="url\(#clip\)" class='points'.+)(<g clip-path="url\(#clip\)"><line class='cross-line'.+)/;
+  if ($tool eq 'b') {
+    my ($header, $points, $tail) = $svg =~ /^(.+?)(<g clip-path="url\(#clip\)" class='points'.+)(<g clip-path="url\(#clip\)"><line class='cross-line'.+)/;
+    return ($header, $points, $tail);
+  }
+  my ($header, $points, $tail) = $svg =~ /^(.+?)(<g clip-path="url\(#clip\)" class='points'.+)(<\/g><defs><clipPath id='clipMarg'>.+)/;
   return ($header, $points, $tail);
 }
 
@@ -118,7 +127,7 @@ sub updatePoints {
   my $defaultRadius = $_[3];
   my @newPoints;
   foreach my $point (@points) {
-    my ($circle, $text) = $point =~ /(<circle.+?\/>).+?(<text.+?<\/text>)/;
+    my ($circle, $text) = $point =~ /(<circle.+?\/>).*(<text.+?<\/text>)/;
     my ($gene) = $text =~ />(.+?)<\/text>/;
     my $color = $defaultColor;
     my $size = $defaultRadius;
