@@ -107,13 +107,15 @@ sub parseTextFile {
   open my $fh, '<', $file or die "Could not open $file: $!";
 
   while(my $row = $tsv->getline($fh)) {
-    my %rowHash;
-    $rowHash{'color'} = @{$row}[0];
-    if (@{$row}[1]) {
-      $rowHash{'size'} = @{$row}[1];
+    if (scalar @{$row} >= 3) {
+      my %rowHash;
+      $rowHash{'color'} = @{$row}[0];
+      if (@{$row}[1]) {
+        $rowHash{'size'} = @{$row}[1];
+      }
+      @{$rowHash{'list'}} = split /,/, @{$row}[2];
+      push @json, \%rowHash;
     }
-    @{$rowHash{'list'}} = split /,/, @{$row}[2];
-    push @json, \%rowHash;
   }
   close($fh);
 	return @json;
