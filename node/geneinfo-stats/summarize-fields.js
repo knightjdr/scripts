@@ -10,6 +10,7 @@ const fields = {
   orf: 0,
   refseq: 0,
   uniprot: 0,
+  wormbase: 0,
 };
 
 const summarizeFields = (queries) => {

@@ -6,10 +6,12 @@ const species = {
   'Danio rerio': 0,
   'Dictyostelium discoideum': 0,
   'Drosophila melanogaster': 0,
+  'Escherichia coli (K12)': 0,
   'Gallus gallus': 0,
   'Homo sapiens': 0,
   'Mus musculus': 0,
   'Saccharomyces cerevisiae': 0,
+  'Salmonella Typhimurium (LT2)': 0,
   'Schizosaccharomyces pombe': 0,
   'Xenopus laevis': 0,
 };
