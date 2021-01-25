@@ -9,7 +9,7 @@
   "author": "James Knight",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^5.9.0",
+    "eslint": "^7.13.0",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0"
   }

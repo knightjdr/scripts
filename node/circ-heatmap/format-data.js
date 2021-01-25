@@ -1,83 +1,37 @@
 const formatData = (data) => {
-  const availablePlots = Object.entries(data).map(([bait, arr]) => {
-    const circHeatmap = arr.reduce((accum, details) => ({
-      readouts: [
-        ...accum.readouts,
-        {
-          known: details.known,
-          name: details.prey,
-        },
-      ],
-      segments: [
-        {
-          ...accum.segments[0],
-          values: [
-            ...accum.segments[0].values,
-            Number(details.spec),
-          ],
-        },
-        {
-          ...accum.segments[1],
-          values: [
-            ...accum.segments[1].values,
-            Number(details.fc),
-          ],
-        },
-        {
-          ...accum.segments[2],
-          values: [
-            ...accum.segments[2].values,
-            Number(details.expression),
-          ],
-        },
-      ],
-    }), {
-      readouts: [],
-      segments: [
-        { name: 'AvgSpec', values: [] },
-        { name: 'FoldChange', values: [] },
-        { name: 'RNA expression', values: [] },
-      ],
-    });
-    return {
-      name: bait,
-      readouts: circHeatmap.readouts,
-      segments: circHeatmap.segments,
-    };
-  });
+  const plots = Object.entries(data).map(([bait, arr]) => ({
+    name: bait,
+    readouts: arr.reduce((accum, details) => ([
+      ...accum,
+      {
+        known: details.known,
+        name: details.prey,
+        segments: {
+          "AvgSpec": Number(details.spec),
+          "FC": Number(details.fc),
+          "RNA expression": Number(details.expression),
+        }
+      },
+    ]), []),
+  }));
   return {
-    availablePlots,
-    panel: true,
+    legend: [
+      { color: 'blue', max: 50, min: 0, name: 'AvgSpec' },
+      { color: 'red', max: 50, min: 0, name: 'FC' },
+      { color: 'green', max: 50, min: 0, name: 'RNA expression' },
+    ],
     parameters: {
+      analysisType: 'scv',
       files: [
         'samplefile.txt',
       ],
-      imageType: 'circ-heatmap',
-      name: 'test',
+      imageType: 'circheatmap',
+      name: `test`,
     },
-    plot: availablePlots[0],
-    circHeatmapSettings: [
-      {
-        abundanceCap: 50,
-        color: 'blueBlack',
-        minAbundance: 0,
-      },
-      {
-        abundanceCap: 50,
-        color: 'blueBlack',
-        minAbundance: 0,
-      },
-      {
-        abundanceCap: 50,
-        color: 'blueBlack',
-        minAbundance: 0,
-      },
-    ],
+    plots: plots,
     settings: {
-      current: {
-        known: true,
-        plot: 0,
-      },
+      segmentOrder: ['AvgSpec', 'FC', 'RNA expression'],
+      showKnown: true,
     },
   };
 };

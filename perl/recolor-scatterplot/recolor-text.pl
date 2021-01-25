@@ -5,7 +5,6 @@
 use strict;
 use warnings;
 
-use Data::Dumper; # use like this to print an array print Dumper \@array;
 use Text::CSV_XS;
 
 # command line parameters
@@ -23,7 +22,7 @@ if ($#ARGV == 0) {
 	print "-f [fill color (wrapped in quotes) for points not explicitly in text file (default blue)]\n";
   print "-r [radius for points not explicitly in text file (default 6)]\n";
   print "-s [svg file; must end in .svg]\n";
-  print "-t [tool; b for bait-bait and s for specificity (default b)]";
+  print "-t [tool; b for bait-bait and s for specificity (default b)]\n";
 	die "\n";
 } else {
 	my $i = 0;
