@@ -15,11 +15,13 @@ const formatData = (data) => {
     ]), []),
   }));
   return {
-    legend: [
-      { color: 'blue', max: 50, min: 0, name: 'AvgSpec' },
-      { color: 'red', max: 50, min: 0, name: 'FC' },
-      { color: 'green', max: 50, min: 0, name: 'RNA expression' },
-    ],
+    circles: {
+      order: [
+        { color: 'blue', max: 50, min: 0, name: 'AvgSpec' },
+        { color: 'red', max: 50, min: 0, name: 'FC' },
+        { color: 'green', max: 50, min: 0, name: 'RNA expression' },
+      ],
+    },
     parameters: {
       analysisType: 'scv',
       files: [
@@ -30,7 +32,6 @@ const formatData = (data) => {
     },
     plots: plots,
     settings: {
-      segmentOrder: ['AvgSpec', 'FC', 'RNA expression'],
       showKnown: true,
     },
   };

@@ -13,11 +13,13 @@ const generate = (options) => {
     })),
   };
   return ({
-    legend: Array.from(Array(options.circles)).map(() => ({
-      max: 50,
-      color: colors[Math.floor(Math.random() * Math.floor(3))],
-      min: 0,
-    })),
+    circles: {
+      order: Array.from(Array(options.circles)).map(() => ({
+        max: 50,
+        color: colors[Math.floor(Math.random() * Math.floor(3))],
+        min: 0,
+      })),
+    },
     parameters: {
       analysisType: 'scv',
       files: [
@@ -30,7 +32,6 @@ const generate = (options) => {
       plot,
     ],
     settings: {
-      segmentOrder: [Array.from(Array(options.circles)).map((v, index) => `Attribute ${index + 1}`)],
       showKnown: true,
     },
   });
