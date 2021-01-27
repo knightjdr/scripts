@@ -8,7 +8,7 @@ const formatData = (data) => {
         name: details.prey,
         segments: {
           "AvgSpec": Number(details.spec),
-          "FC": Number(details.fc),
+          "FoldChange": Number(details.fc),
           "RNA expression": Number(details.expression),
         }
       },
@@ -18,7 +18,7 @@ const formatData = (data) => {
     circles: {
       order: [
         { color: 'blue', max: 50, min: 0, name: 'AvgSpec' },
-        { color: 'red', max: 50, min: 0, name: 'FC' },
+        { color: 'red', max: 50, min: 0, name: 'FoldChange' },
         { color: 'green', max: 50, min: 0, name: 'RNA expression' },
       ],
     },
@@ -32,7 +32,7 @@ const formatData = (data) => {
     },
     plots: plots,
     settings: {
-      showKnown: true,
+      sortByKnown: true,
     },
   };
 };

@@ -32,7 +32,7 @@ const generate = (options) => {
       plot,
     ],
     settings: {
-      showKnown: true,
+      sortByKnown: true,
     },
   });
 };
