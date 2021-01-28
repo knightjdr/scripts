@@ -5,7 +5,7 @@ const formatData = (data) => {
       ...accum,
       {
         known: details.known,
-        name: details.prey,
+        label: details.prey,
         segments: {
           "AvgSpec": Number(details.spec),
           "FoldChange": Number(details.fc),
@@ -17,9 +17,9 @@ const formatData = (data) => {
   return {
     circles: {
       order: [
-        { color: 'blue', max: 50, min: 0, name: 'AvgSpec' },
-        { color: 'red', max: 50, min: 0, name: 'FoldChange' },
-        { color: 'green', max: 50, min: 0, name: 'RNA expression' },
+        { attribute: 'AvgSpec', color: 'blue', max: 50, min: 0 },
+        { attribute: 'FoldChange', color: 'red', max: 50, min: 0 },
+        { attribute: 'RNA expression', color: 'green', max: 50, min: 0 },
       ],
     },
     parameters: {
@@ -29,6 +29,7 @@ const formatData = (data) => {
       ],
       imageType: 'circheatmap',
       name: `test`,
+      readoutColumn: 'PreyGene',
     },
     plots: plots,
     settings: {
